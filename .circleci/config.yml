@@ -24,9 +24,12 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run:
+          name: Setup Build
+          command: |
+            mkdir -p $HOME/junit-results
+            mkdir -p $HOME/multiple-results
+      - run:
           name: Running E2E tests with JUnit reporter
-          command: mkdir -p $HOME/junit-results
-          command: mkdir -p $HOME/multiple-results
           command: npm run e2eheadless
           
       - store_test_results:
