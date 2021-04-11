@@ -26,6 +26,7 @@ jobs:
       - run:
           name: Setup Build
           command: |
+            ls -al
             mkdir -p $HOME/junit-results
             mkdir -p $HOME/multiple-results
       - run:
