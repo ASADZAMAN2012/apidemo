@@ -6,6 +6,7 @@ jobs:
       # the Docker image with Cypress dependencies
       - image: cypress/base:8
         environment:
+        CIRCLE_TEST_RESULTS: $HOME/junit-results
           ## this enables colors in the output
           TERM: xterm
     working_directory: ~/app
@@ -25,7 +26,10 @@ jobs:
             - ~/.cache
       - run:
           name: Running E2E tests with JUnit reporter
+          command: mkdir -p $HOME/junit-results
+          command: mkdir -p $HOME/multiple-results
           command: npm run e2eheadless
+          
       - store_test_results:
           path: junit-results
       #- run:
