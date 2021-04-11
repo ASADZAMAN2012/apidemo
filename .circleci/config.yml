@@ -6,7 +6,6 @@ jobs:
       # the Docker image with Cypress dependencies
       - image: cypress/base:8
         environment:
-        CIRCLE_TEST_RESULTS: $HOME/junit-results
           ## this enables colors in the output
           TERM: xterm
     working_directory: ~/app
